@@ -8,6 +8,7 @@ function start(options) {
     ReactDOM.render(<Example/>, el);
     return Promise.resolve({
         stop: () => {
+            ReactDOM.unmountComponentAtNode(el);
             console.log('stopped');
             return Promise.resolve();
         }
