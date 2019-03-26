@@ -1,15 +1,16 @@
 import './styles.css';
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Example from './example-component';
+import {render} from 'preact';
+import notFound from './not-found';
 
-function start(options) {
-    const {el} = options;
-    ReactDOM.render(<Example/>, el);
+function start(params) {
+    const {el, options} = params;
+    const {resolveTranslation} = options;
+
+    render(notFound( {resolveTranslation}), el);
+
     return Promise.resolve({
         stop: () => {
-            ReactDOM.unmountComponentAtNode(el);
-            console.log('stopped');
+            render(null, el, el.lastChild);
             return Promise.resolve();
         }
     });
