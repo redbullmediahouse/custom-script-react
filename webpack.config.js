@@ -4,7 +4,6 @@ module.exports = {
     entry: './src/main/index.js',
     mode: 'development',
     output: {
-        library: 'customScript',
         libraryTarget: 'amd',
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js'
